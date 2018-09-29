@@ -8,6 +8,8 @@ A minimal example for building your first simple artificial neural network using
 [The famous Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) contains data to quantify the morphologic variation of Iris flowers of three related species. In other words - A total of 150 observations of 4 input features `Sepal.Length`, `Sepal.Width`, `Petal.Length` and `Petal.Width` and 3 output classes `setosa` `versicolor` and `virginica`, with 50 observations in each class. The distributions of the feature values looks like so:
 
 ``` r
+library(tidyverse)
+
 iris %>% as_tibble %>% gather(feature, value, -Species) %>%
   ggplot(aes(x = feature, y = value, fill = Species)) +
   geom_violin(alpha = 0.5, scale = "width", position = position_dodge(width = 0.9)) +
@@ -30,20 +32,20 @@ Our artificial neural network will have a total of 35 parameters: 4 for each inp
 Before we begin, we need to install [Keras and TensorFlow for R](https://tensorflow.rstudio.com/keras/) as follows:
 
 ``` r
-install.packages("keras")
+#install.packages("keras")
 ```
 
 TensorFlow is the default backend engine. TensorFlow and Keras can be installed as follows:
 
 ``` r
-library(keras)
-install_keras()
+#library(keras)
+#install_keras(method=conda) # Window. Needs Python-Installation e.g. Anaconda3  
 ```
 
 We also need to install [`TidyVerse`](https://www.tidyverse.org/):
 
 ``` r
-install.packages("tidyverse")
+#install.packages("tidyverse")
 ```
 
 ### Load libraries
